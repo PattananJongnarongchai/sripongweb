@@ -1,0 +1,151 @@
+/* Layout */
+:root {
+    --sidebar-width: 250px;
+    --navbar-height: 56px;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: var(--navbar-height);
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar */
+#sidebar {
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background: #343a40;
+    color: #fff;
+    transition: all 0.3s;
+    height: calc(100vh - var(--navbar-height));
+    position: fixed;
+    top: var(--navbar-height);
+}
+
+#sidebar.active {
+    margin-left: calc(-1 * var(--sidebar-width));
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #2c3136;
+}
+
+#sidebar .components {
+    padding: 20px 0;
+}
+
+#sidebar .nav-link {
+    padding: 10px 20px;
+    color: rgba(255,255,255,.8);
+    display: flex;
+    align-items: center;
+}
+
+#sidebar .nav-link:hover {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+#sidebar .nav-link.active {
+    color: #fff;
+    background: #007bff;
+}
+
+#sidebar .nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Content */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: calc(100vh - var(--navbar-height));
+    transition: all 0.3s;
+    margin-left: var(--sidebar-width);
+}
+
+#content.active {
+    margin-left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        margin-left: 0;
+    }
+    #content.active {
+        margin-left: var(--sidebar-width);
+    }
+}
+
+/* Cards */
+.stats-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+}
+
+.stats-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Tables */
+.table-responsive {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,.05);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 5px;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header {
+    background: #f8f9fa;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Active Section Indicator */
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #fff;
+}
+
+/* Hover Effects */
+.nav-link:hover i {
+    transform: scale(1.1);
+}
+
+/* Logout Button Special Styling */
+#logoutBtn:hover {
+    background-color: #dc3545;
+    color: #fff;
+} 
